@@ -1,7 +1,9 @@
-import { Machine, actions, assign } from "xstate";
-// const { log } = actions;
+/**
+ * Plenty of duplication and logging here because this is just a toy example. 
+ */
 
-const log = (msg) => console.log(msg);
+import { Machine, actions, assign } from "xstate";
+const { log } = actions;
 
 const play = (squares, position, value) => {
   const localSquares = [...squares];
