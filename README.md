@@ -1,3 +1,24 @@
+# React TicTacToe with Xstate
+
+This is a game of TicTacToe based on the React Tutorial, but utilizing [Xstsate](https://xstate.js.org/docs/) for state management. The first commit is the basic tutorial code for the game with state managed by the components. Commits after that are when Xstate was introduced. 
+
+To avoid ["state explosion"](https://en.wikipedia.org/wiki/UML_state_machine#Extended_states), we only model game states and not the state of the board itself. The squares of the board are part of the context for the state machine. 
+
+The states of the game are:
+- Start
+- xTurn - X player's turn
+- oTurn - O player's turn
+- Game over - a transient state used to determine the winner
+- xWinner - X wins the game
+- oWinner - O wins the game
+- noWinner - No winner ("cat's game")
+
+![Image of TicTacToe State Machine](./src/tictactoe-state-machine.jpg)
+
+The original React Tutorial allowed players to traverse through the history, but this [isn't easily modeled in Xstate](https://github.com/davidkpiano/xstate/issues/481#issuecomment-498236063). Individual state nodes can have history, but not the entire machine itself. Instead of overcomplicating this simple example, the history buttons were replaced with a Start Over button that can restart the game after it ends.  
+
+## Template
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
